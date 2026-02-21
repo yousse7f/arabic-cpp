@@ -292,6 +292,342 @@ code {
     font-size: 0.95rem;
 }
 
+/* Contribute Section */
+.contribute {
+    background: linear-gradient(to bottom, var(--bg-dark), #1a1e23);
+    text-align: center;
+}
+
+.contribute-content p {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+}
+
+/* Editor Animation - Enhanced Lifecycle (10s Total) */
+.how-it-works {
+    background: #0f1216;
+}
+
+.editor-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.editor-window {
+    width: 100%;
+    max-width: 650px;
+    background: #0d1117;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.editor-topbar {
+    background: #161b22;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dots span:nth-child(1) {
+    background: #ff5f56;
+}
+
+.dots span:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.dots span:nth-child(3) {
+    background: #27c93f;
+}
+
+.tab {
+    font-size: 0.8rem;
+    color: var(--primary);
+    background: #0d1117;
+    padding: 6px 18px;
+    border-radius: 6px 6px 0 0;
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: none;
+}
+
+.editor-body {
+    display: flex;
+    padding: 25px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    min-height: 200px;
+}
+
+.line-numbers {
+    color: #484f58;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding-left: 15px;
+    margin-left: 20px;
+}
+
+.code-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.code-area span {
+    display: block;
+    height: 1.4rem;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.anim-line-1::before {
+    content: '#include "arabic_cpp.h"';
+    color: #ff7b72;
+    animation: typeLine1 10s infinite;
+}
+
+.anim-line-2::before {
+    content: 'صحيح الرئيسية() {';
+    color: #d2a8ff;
+    animation: typeLine2 10s infinite;
+}
+
+.anim-line-3::before {
+    content: '    أخرج << "مرحباً بالعربي";';
+    color: #a5d6ff;
+    animation: typeLine3 10s infinite;
+}
+
+.anim-line-4::before {
+    content: '    أرجع 0;';
+    color: #79c0ff;
+    animation: typeLine4 10s infinite;
+}
+
+.anim-line-5::before {
+    content: '}';
+    color: #d2a8ff;
+    animation: typeLine5 10s infinite;
+}
+
+@keyframes typeLine1 {
+
+    0%,
+    5% {
+        width: 0;
+    }
+
+    15%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes typeLine2 {
+
+    0%,
+    18% {
+        width: 0;
+    }
+
+    28%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes typeLine3 {
+
+    0%,
+    32% {
+        width: 0;
+    }
+
+    50%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes typeLine4 {
+
+    0%,
+    53% {
+        width: 0;
+    }
+
+    63%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes typeLine5 {
+
+    0%,
+    65% {
+        width: 0;
+    }
+
+    70%,
+    100% {
+        width: 100%;
+    }
+}
+
+.editor-terminal {
+    background: #010409;
+    padding: 15px 25px;
+    border-top: 1px solid #30363d;
+    font-family: 'JetBrains Mono', monospace;
+    animation: slideUpTerminal 10s infinite;
+    overflow: hidden;
+}
+
+.terminal-header {
+    font-size: 0.75rem;
+    color: #8b949e;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.terminal-command {
+    display: block;
+    color: #d1d5da;
+    font-size: 0.85rem;
+    animation: typeCommand 10s infinite;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.terminal-output::after {
+    content: 'مرحباً بالعربي';
+    display: block;
+    color: var(--primary);
+    font-weight: 700;
+    margin-top: 5px;
+    animation: showOutput 10s infinite;
+}
+
+@keyframes slideUpTerminal {
+
+    0%,
+    75% {
+        height: 0;
+        padding: 0;
+        opacity: 0;
+        border-top: none;
+    }
+
+    80%,
+    100% {
+        height: auto;
+        padding: 15px 25px;
+        opacity: 1;
+        border-top: 1px solid #30363d;
+    }
+}
+
+@keyframes typeCommand {
+
+    0%,
+    76% {
+        width: 0;
+    }
+
+    85%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes showOutput {
+
+    0%,
+    90% {
+        opacity: 0;
+    }
+
+    95%,
+    100% {
+        opacity: 1;
+    }
+}
+
+.animation-steps {
+    display: flex;
+    gap: 20px;
+}
+
+.step {
+    padding: 12px 25px;
+    background: var(--glass);
+    border-radius: 30px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+@keyframes h1 {
+
+    5%,
+    15% {
+        color: var(--primary);
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes h2 {
+
+    20%,
+    70% {
+        color: var(--primary);
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes h3 {
+
+    75%,
+    98% {
+        color: var(--primary);
+        transform: translateY(-5px);
+    }
+}
+
+#step-1 {
+    animation: h1 10s infinite;
+}
+
+#step-2 {
+    animation: h2 10s infinite;
+}
+
+#step-3 {
+    animation: h3 10s infinite;
+}
+
 /* Footer */
 footer {
     padding: 40px 0;
