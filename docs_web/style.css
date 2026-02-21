@@ -146,7 +146,6 @@ body {
 
 .hero-image img[src="arabic_cpp_banner.png"] {
     display: none;
-    /* Hide broken image if file missing */
 }
 
 .hero-image::before {
@@ -304,7 +303,7 @@ code {
     margin-bottom: 30px;
 }
 
-/* Editor Animation - Enhanced Lifecycle (10s Total) */
+/* Editor Animation - Ultimate Sequential Lifecycle (18s Total) */
 .how-it-works {
     background: #0f1216;
 }
@@ -325,6 +324,7 @@ code {
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
 }
 
 .editor-topbar {
@@ -332,7 +332,20 @@ code {
     padding: 12px 20px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: space-between;
+}
+
+.editor-actions .run-btn {
+    background: #238636;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+    animation: btnClick 18s infinite;
 }
 
 .dots {
@@ -369,6 +382,79 @@ code {
     border-bottom: none;
 }
 
+/* Mouse Cursor Animation */
+.mouse-pointer {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="black" stroke-width="1.5"><path d="M5.5 2v18l5-5h7l-12-13z"/></svg>') no-repeat;
+    z-index: 100;
+    pointer-events: none;
+    top: 80%;
+    left: 90%;
+    animation: mouseMove 18s infinite;
+    opacity: 0;
+}
+
+@keyframes mouseMove {
+
+    0%,
+    58% {
+        top: 80%;
+        left: 90%;
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+        top: 80%;
+        left: 90%;
+    }
+
+    64% {
+        top: 22px;
+        left: 88%;
+    }
+
+    /* Realistic move to button */
+    66% {
+        transform: scale(0.85);
+    }
+
+    /* Visual click */
+    68% {
+        transform: scale(1);
+        top: 22px;
+        left: 88%;
+    }
+
+    72%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes btnClick {
+
+    0%,
+    65% {
+        background: #238636;
+        box-shadow: none;
+    }
+
+    66%,
+    67% {
+        background: #2ea043;
+        transform: scale(0.95);
+        box-shadow: 0 0 15px var(--primary);
+    }
+
+    68%,
+    100% {
+        background: #238636;
+    }
+}
+
 .editor-body {
     display: flex;
     padding: 25px;
@@ -389,7 +475,7 @@ code {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeOutLoader 12s infinite;
+    animation: fadeOutLoader 18s infinite;
 }
 
 .loader-content {
@@ -415,7 +501,7 @@ code {
     height: 100%;
     background: var(--primary);
     width: 0;
-    animation: fillProgress 12s infinite;
+    animation: fillProgress 18s infinite;
 }
 
 @keyframes fillProgress {
@@ -423,11 +509,11 @@ code {
         width: 0;
     }
 
-    15% {
+    12% {
         width: 100%;
     }
 
-    20%,
+    15%,
     100% {
         width: 100%;
     }
@@ -436,12 +522,12 @@ code {
 @keyframes fadeOutLoader {
 
     0%,
-    18% {
+    15% {
         opacity: 1;
         pointer-events: all;
     }
 
-    22%,
+    18%,
     100% {
         opacity: 0;
         pointer-events: none;
@@ -470,67 +556,149 @@ code {
     position: relative;
     overflow: hidden;
     white-space: nowrap;
+    width: 0;
 }
 
-/* Lifecycle Keyframes (Total 12s) */
+/* Typing Sequential Lines (one by one) */
 .anim-line-1::before {
     content: '#include "arabic_cpp.h"';
     color: #ff7b72;
-    animation: typeLine1 12s infinite steps(24);
 }
 
 .anim-line-2::before {
     content: 'صحيح الرئيسية() {';
     color: #d2a8ff;
-    animation: typeLine2 12s infinite steps(17);
 }
 
 .anim-line-3::before {
     content: '    أخرج << "مرحباً بالعربي";';
     color: #a5d6ff;
-    animation: typeLine3 12s infinite steps(29);
 }
 
 .anim-line-4::before {
     content: '    أرجع 0;';
     color: #79c0ff;
-    animation: typeLine4 12s infinite steps(11);
 }
 
 .anim-line-5::before {
     content: '}';
     color: #d2a8ff;
-    animation: typeLine5 12s infinite steps(1);
 }
 
-/* Blinking Cursor Effect */
+.anim-line-1 {
+    animation: t1 18s infinite steps(24);
+}
+
+.anim-line-2 {
+    animation: t2 18s infinite steps(17);
+}
+
+.anim-line-3 {
+    animation: t3 18s infinite steps(29);
+}
+
+.anim-line-4 {
+    animation: t4 18s infinite steps(11);
+}
+
+.anim-line-5 {
+    animation: t5 18s infinite steps(1);
+}
+
+@keyframes t1 {
+
+    0%,
+    18% {
+        width: 0;
+    }
+
+    25%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes t2 {
+
+    0%,
+    26% {
+        width: 0;
+    }
+
+    33%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes t3 {
+
+    0%,
+    34% {
+        width: 0;
+    }
+
+    48%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes t4 {
+
+    0%,
+    49% {
+        width: 0;
+    }
+
+    55%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes t5 {
+
+    0%,
+    56% {
+        width: 0;
+    }
+
+    58%,
+    100% {
+        width: 100%;
+    }
+}
+
+/* Blinking Cursor Per Line */
 .code-area span::after {
     content: '|';
     color: var(--primary);
+    font-weight: bold;
     position: absolute;
     right: 0;
-    animation: blink 0.8s infinite;
     opacity: 0;
+    animation: blink 0.8s infinite;
 }
 
 .anim-line-1::after {
-    animation: blink 0.8s infinite, moveCursor1 12s infinite step-end;
+    animation: blink 0.8s infinite, cur1 18s infinite step-end;
 }
 
 .anim-line-2::after {
-    animation: blink 0.8s infinite, moveCursor2 12s infinite step-end;
+    animation: blink 0.8s infinite, cur2 18s infinite step-end;
 }
 
 .anim-line-3::after {
-    animation: blink 0.8s infinite, moveCursor3 12s infinite step-end;
+    animation: blink 0.8s infinite, cur3 18s infinite step-end;
 }
 
 .anim-line-4::after {
-    animation: blink 0.8s infinite, moveCursor4 12s infinite step-end;
+    animation: blink 0.8s infinite, cur4 18s infinite step-end;
 }
 
 .anim-line-5::after {
-    animation: blink 0.8s infinite, moveCursor5 12s infinite step-end;
+    animation: blink 0.8s infinite, cur5 18s infinite step-end;
 }
 
 @keyframes blink {
@@ -545,19 +713,19 @@ code {
     }
 }
 
-@keyframes moveCursor1 {
+@keyframes cur1 {
 
     0%,
-    24% {
+    18% {
         opacity: 0;
     }
 
-    25% {
+    19% {
         opacity: 1;
         left: 0;
     }
 
-    32% {
+    25% {
         left: 100%;
         opacity: 0;
     }
@@ -567,41 +735,41 @@ code {
     }
 }
 
-@keyframes moveCursor2 {
+@keyframes cur2 {
 
     0%,
+    25% {
+        opacity: 0;
+    }
+
+    26% {
+        opacity: 1;
+        left: 0;
+    }
+
+    33% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes cur3 {
+
+    0%,
+    33% {
+        opacity: 0;
+    }
+
     34% {
-        opacity: 0;
-    }
-
-    35% {
         opacity: 1;
         left: 0;
-    }
-
-    45% {
-        left: 100%;
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes moveCursor3 {
-
-    0%,
-    47% {
-        opacity: 0;
     }
 
     48% {
-        opacity: 1;
-        left: 0;
-    }
-
-    65% {
         left: 100%;
         opacity: 0;
     }
@@ -611,112 +779,47 @@ code {
     }
 }
 
-@keyframes moveCursor4 {
-
-    0%,
-    67% {
-        opacity: 0;
-    }
-
-    68% {
-        opacity: 1;
-        left: 0;
-    }
-
-    75% {
-        left: 100%;
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes moveCursor5 {
-
-    0%,
-    77% {
-        opacity: 0;
-    }
-
-    78% {
-        opacity: 1;
-        left: 0;
-    }
-
-    82% {
-        left: 100%;
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes typeLine1 {
-
-    0%,
-    25% {
-        width: 0;
-    }
-
-    32%,
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes typeLine2 {
-
-    0%,
-    35% {
-        width: 0;
-    }
-
-    45%,
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes typeLine3 {
+@keyframes cur4 {
 
     0%,
     48% {
-        width: 0;
+        opacity: 0;
     }
 
-    65%,
+    49% {
+        opacity: 1;
+        left: 0;
+    }
+
+    55% {
+        left: 100%;
+        opacity: 0;
+    }
+
     100% {
-        width: 100%;
+        opacity: 0;
     }
 }
 
-@keyframes typeLine4 {
+@keyframes cur5 {
 
     0%,
-    68% {
-        width: 0;
+    55% {
+        opacity: 0;
     }
 
-    75%,
+    56% {
+        opacity: 1;
+        left: 0;
+    }
+
+    58% {
+        left: 100%;
+        opacity: 0;
+    }
+
     100% {
-        width: 100%;
-    }
-}
-
-@keyframes typeLine5 {
-
-    0%,
-    78% {
-        width: 0;
-    }
-
-    82%,
-    100% {
-        width: 100%;
+        opacity: 0;
     }
 }
 
@@ -725,8 +828,27 @@ code {
     padding: 15px 25px;
     border-top: 1px solid #30363d;
     font-family: 'JetBrains Mono', monospace;
-    animation: slideUpTerminal 12s infinite;
+    animation: slideUpTerminal 18s infinite;
     overflow: hidden;
+}
+
+@keyframes slideUpTerminal {
+
+    0%,
+    68% {
+        height: 0;
+        padding: 0;
+        opacity: 0;
+        border-top: none;
+    }
+
+    72%,
+    100% {
+        height: auto;
+        padding: 15px 25px;
+        opacity: 1;
+        border-top: 1px solid #30363d;
+    }
 }
 
 .terminal-header {
@@ -740,9 +862,22 @@ code {
     display: block;
     color: #d1d5da;
     font-size: 0.85rem;
-    animation: typeCommand 12s infinite steps(20);
-    overflow: hidden;
-    white-space: nowrap;
+    animation: typeCommand 18s infinite steps(20);
+}
+
+@keyframes typeCommand {
+
+    0%,
+    73% {
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    85%,
+    100% {
+        width: 100%;
+    }
 }
 
 .terminal-output::after {
@@ -751,49 +886,17 @@ code {
     color: var(--primary);
     font-weight: 700;
     margin-top: 5px;
-    animation: showOutput 12s infinite;
-}
-
-@keyframes slideUpTerminal {
-
-    0%,
-    82% {
-        height: 0;
-        padding: 0;
-        opacity: 0;
-        border-top: none;
-    }
-
-    88%,
-    100% {
-        height: auto;
-        padding: 15px 25px;
-        opacity: 1;
-        border-top: 1px solid #30363d;
-    }
-}
-
-@keyframes typeCommand {
-
-    0%,
-    84% {
-        width: 0;
-    }
-
-    92%,
-    100% {
-        width: 100%;
-    }
+    animation: showOutput 18s infinite;
 }
 
 @keyframes showOutput {
 
     0%,
-    94% {
+    88% {
         opacity: 0;
     }
 
-    98%,
+    92%,
     100% {
         opacity: 1;
     }
@@ -810,30 +913,29 @@ code {
     border-radius: 30px;
     font-size: 0.95rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s;
 }
 
-@keyframes h1 {
+@keyframes highlight1 {
 
-    5%,
+    0%,
     15% {
         color: var(--primary);
         transform: translateY(-5px);
     }
 }
 
-@keyframes h2 {
+@keyframes highlight2 {
 
-    20%,
-    70% {
+    18%,
+    68% {
         color: var(--primary);
         transform: translateY(-5px);
     }
 }
 
-@keyframes h3 {
+@keyframes highlight3 {
 
-    75%,
+    70%,
     98% {
         color: var(--primary);
         transform: translateY(-5px);
@@ -841,15 +943,15 @@ code {
 }
 
 #step-1 {
-    animation: h1 10s infinite;
+    animation: highlight1 18s infinite;
 }
 
 #step-2 {
-    animation: h2 10s infinite;
+    animation: highlight2 18s infinite;
 }
 
 #step-3 {
-    animation: h3 10s infinite;
+    animation: highlight3 18s infinite;
 }
 
 /* Footer */
