@@ -374,7 +374,78 @@ code {
     padding: 25px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.95rem;
-    min-height: 200px;
+    min-height: 250px;
+    position: relative;
+}
+
+.loader-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d1117;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeOutLoader 12s infinite;
+}
+
+.loader-content {
+    text-align: center;
+    width: 60%;
+}
+
+.loader-content span {
+    font-size: 0.8rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    width: 0;
+    animation: fillProgress 12s infinite;
+}
+
+@keyframes fillProgress {
+    0% {
+        width: 0;
+    }
+
+    15% {
+        width: 100%;
+    }
+
+    20%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes fadeOutLoader {
+
+    0%,
+    18% {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    22%,
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .line-numbers {
@@ -401,44 +472,45 @@ code {
     white-space: nowrap;
 }
 
+/* Lifecycle Keyframes (Total 12s) */
 .anim-line-1::before {
     content: '#include "arabic_cpp.h"';
     color: #ff7b72;
-    animation: typeLine1 10s infinite;
+    animation: typeLine1 12s infinite;
 }
 
 .anim-line-2::before {
     content: 'صحيح الرئيسية() {';
     color: #d2a8ff;
-    animation: typeLine2 10s infinite;
+    animation: typeLine2 12s infinite;
 }
 
 .anim-line-3::before {
     content: '    أخرج << "مرحباً بالعربي";';
     color: #a5d6ff;
-    animation: typeLine3 10s infinite;
+    animation: typeLine3 12s infinite;
 }
 
 .anim-line-4::before {
     content: '    أرجع 0;';
     color: #79c0ff;
-    animation: typeLine4 10s infinite;
+    animation: typeLine4 12s infinite;
 }
 
 .anim-line-5::before {
     content: '}';
     color: #d2a8ff;
-    animation: typeLine5 10s infinite;
+    animation: typeLine5 12s infinite;
 }
 
 @keyframes typeLine1 {
 
     0%,
-    5% {
+    25% {
         width: 0;
     }
 
-    15%,
+    32%,
     100% {
         width: 100%;
     }
@@ -447,11 +519,11 @@ code {
 @keyframes typeLine2 {
 
     0%,
-    18% {
+    35% {
         width: 0;
     }
 
-    28%,
+    45%,
     100% {
         width: 100%;
     }
@@ -460,11 +532,11 @@ code {
 @keyframes typeLine3 {
 
     0%,
-    32% {
+    48% {
         width: 0;
     }
 
-    50%,
+    65%,
     100% {
         width: 100%;
     }
@@ -473,11 +545,11 @@ code {
 @keyframes typeLine4 {
 
     0%,
-    53% {
+    68% {
         width: 0;
     }
 
-    63%,
+    75%,
     100% {
         width: 100%;
     }
@@ -486,11 +558,11 @@ code {
 @keyframes typeLine5 {
 
     0%,
-    65% {
+    78% {
         width: 0;
     }
 
-    70%,
+    82%,
     100% {
         width: 100%;
     }
@@ -501,7 +573,7 @@ code {
     padding: 15px 25px;
     border-top: 1px solid #30363d;
     font-family: 'JetBrains Mono', monospace;
-    animation: slideUpTerminal 10s infinite;
+    animation: slideUpTerminal 12s infinite;
     overflow: hidden;
 }
 
@@ -533,14 +605,14 @@ code {
 @keyframes slideUpTerminal {
 
     0%,
-    75% {
+    82% {
         height: 0;
         padding: 0;
         opacity: 0;
         border-top: none;
     }
 
-    80%,
+    88%,
     100% {
         height: auto;
         padding: 15px 25px;
@@ -552,11 +624,11 @@ code {
 @keyframes typeCommand {
 
     0%,
-    76% {
+    84% {
         width: 0;
     }
 
-    85%,
+    92%,
     100% {
         width: 100%;
     }
@@ -565,11 +637,11 @@ code {
 @keyframes showOutput {
 
     0%,
-    90% {
+    94% {
         opacity: 0;
     }
 
-    95%,
+    98%,
     100% {
         opacity: 1;
     }
