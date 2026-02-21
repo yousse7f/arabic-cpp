@@ -476,31 +476,183 @@ code {
 .anim-line-1::before {
     content: '#include "arabic_cpp.h"';
     color: #ff7b72;
-    animation: typeLine1 12s infinite;
+    animation: typeLine1 12s infinite steps(24);
 }
 
 .anim-line-2::before {
     content: 'صحيح الرئيسية() {';
     color: #d2a8ff;
-    animation: typeLine2 12s infinite;
+    animation: typeLine2 12s infinite steps(17);
 }
 
 .anim-line-3::before {
     content: '    أخرج << "مرحباً بالعربي";';
     color: #a5d6ff;
-    animation: typeLine3 12s infinite;
+    animation: typeLine3 12s infinite steps(29);
 }
 
 .anim-line-4::before {
     content: '    أرجع 0;';
     color: #79c0ff;
-    animation: typeLine4 12s infinite;
+    animation: typeLine4 12s infinite steps(11);
 }
 
 .anim-line-5::before {
     content: '}';
     color: #d2a8ff;
-    animation: typeLine5 12s infinite;
+    animation: typeLine5 12s infinite steps(1);
+}
+
+/* Blinking Cursor Effect */
+.code-area span::after {
+    content: '|';
+    color: var(--primary);
+    position: absolute;
+    right: 0;
+    animation: blink 0.8s infinite;
+    opacity: 0;
+}
+
+.anim-line-1::after {
+    animation: blink 0.8s infinite, moveCursor1 12s infinite step-end;
+}
+
+.anim-line-2::after {
+    animation: blink 0.8s infinite, moveCursor2 12s infinite step-end;
+}
+
+.anim-line-3::after {
+    animation: blink 0.8s infinite, moveCursor3 12s infinite step-end;
+}
+
+.anim-line-4::after {
+    animation: blink 0.8s infinite, moveCursor4 12s infinite step-end;
+}
+
+.anim-line-5::after {
+    animation: blink 0.8s infinite, moveCursor5 12s infinite step-end;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes moveCursor1 {
+
+    0%,
+    24% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+        left: 0;
+    }
+
+    32% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes moveCursor2 {
+
+    0%,
+    34% {
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 1;
+        left: 0;
+    }
+
+    45% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes moveCursor3 {
+
+    0%,
+    47% {
+        opacity: 0;
+    }
+
+    48% {
+        opacity: 1;
+        left: 0;
+    }
+
+    65% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes moveCursor4 {
+
+    0%,
+    67% {
+        opacity: 0;
+    }
+
+    68% {
+        opacity: 1;
+        left: 0;
+    }
+
+    75% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes moveCursor5 {
+
+    0%,
+    77% {
+        opacity: 0;
+    }
+
+    78% {
+        opacity: 1;
+        left: 0;
+    }
+
+    82% {
+        left: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes typeLine1 {
@@ -588,7 +740,7 @@ code {
     display: block;
     color: #d1d5da;
     font-size: 0.85rem;
-    animation: typeCommand 10s infinite;
+    animation: typeCommand 12s infinite steps(20);
     overflow: hidden;
     white-space: nowrap;
 }
@@ -599,7 +751,7 @@ code {
     color: var(--primary);
     font-weight: 700;
     margin-top: 5px;
-    animation: showOutput 10s infinite;
+    animation: showOutput 12s infinite;
 }
 
 @keyframes slideUpTerminal {
