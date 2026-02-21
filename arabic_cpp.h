@@ -13,7 +13,7 @@
 // الجمل الشرطية والدورات
 #define إذا if
 #define وإلا else
-#define لأجل for
+#define دورة for
 #define بينما while
 #define افعل do
 #define توقف break

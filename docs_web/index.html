@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لغة البرمجة العربية | التوثيق الرسمي</title>
+    <meta name="description"
+        content="التوثيق الرسمي للغة البرمجة العربية المبنية على C++. تعلم البرمجة بلغتك الأم بسهولة وكفاءة.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">لغة البرمجة العربية</div>
+            <ul class="nav-links">
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#docs">قاموس الكلمات</a></li>
+                <li><a href="#example">مثال</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero">
+        <div class="container">
+            <h1>اكتب مستقبلك بالعربي</h1>
+            <p>أول لغة برمجة عربية مبنية مباشرة على قوة C++. كفاءة عالمية، بلسان عربي.</p>
+            <div class="hero-btns">
+                <a href="#docs" class="btn btn-primary">ابدأ التعلم</a>
+                <a href="https://github.com" class="btn btn-secondary">المشروع على GitHub</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="arabic_cpp_banner.png" alt="Arabic C++ Banner">
+        </div>
+    </header>
+
+    <main>
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">لماذا العربية C++؟</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>كفاءة C++</h3>
+                        <p>لا يوجد وسيط يبطئ الكود. كودك يُجمع مباشرة بواسطة أشهر المترجمات العالمية.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>قواعد بسيطة</h3>
+                        <p>استخدم الكلمات التي تعرفها (مثل: إذا، دورة، أخرج) لبناء منطقك البرمجي.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>للجميع</h3>
+                        <p>مثالية لتعليم البرمجة للأطفال والمبتدئين العرب بلغتهم الأم.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="docs" class="docs">
+            <div class="container">
+                <h2 class="section-title">قاموس المصطلحات</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المصطلح بالعربية</th>
+                                <th>المصطلح في C++</th>
+                                <th>الوصف</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>صحيح</td>
+                                <td>int</td>
+                                <td>تعريف متغير رقمي صحيح</td>
+                            </tr>
+                            <tr>
+                                <td>عشري</td>
+                                <td>float</td>
+                                <td>تعريف متغير رقمي بفاصلة</td>
+                            </tr>
+                            <tr>
+                                <td>حرف</td>
+                                <td>char</td>
+                                <td>تعريف متغير لرمز أو حرف واحد</td>
+                            </tr>
+                            <tr>
+                                <td>إذا</td>
+                                <td>if</td>
+                                <td>جملة شرطية</td>
+                            </tr>
+                            <tr>
+                                <td>وإلا</td>
+                                <td>else</td>
+                                <td>خيار بديل في الجملة الشرطية</td>
+                            </tr>
+                            <tr>
+                                <td>دورة</td>
+                                <td>for</td>
+                                <td>حلقة تكرارية محددة</td>
+                            </tr>
+                            <tr>
+                                <td>بينما</td>
+                                <td>while</td>
+                                <td>حلقة تكرارية مشروطة</td>
+                            </tr>
+                            <tr>
+                                <td>أخرج</td>
+                                <td>cout</td>
+                                <td>طباعة مخرجات على الشاشة</td>
+                            </tr>
+                            <tr>
+                                <td>إنزل</td>
+                                <td>endl</td>
+                                <td>بدء سطر جديد في المخرجات</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="example" class="example">
+            <div class="container">
+                <h2 class="section-title">مثال تطبيقي</h2>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>مثال.cpp</span>
+                        <button id="copy-btn">نسخ الكود</button>
+                    </div>
+                    <pre><code>#include "arabic_cpp.h"
+
+صحيح الرئيسية() {
+    دورة (صحيح ط = 0; ط < 5; ط++) {
+        أخرج << "العدد الحالي هو: " << ط << إنزل;
+    }
+    أرجع 0;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>يوسف محمد عبدالله - جميع الحقوق محفوظة &copy; 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
