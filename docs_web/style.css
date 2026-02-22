@@ -347,17 +347,7 @@ code {
     cursor: pointer;
     font-weight: 700;
     transition: all 0.2s;
-    animation: btnClick 18s infinite, pulseGlow 3s infinite alternate;
-}
-
-@keyframes pulseGlow {
-    from {
-        box-shadow: 0 0 5px rgba(35, 134, 54, 0.4);
-    }
-
-    to {
-        box-shadow: 0 0 15px rgba(35, 134, 54, 0.82);
-    }
+    animation: btnClick 18s infinite;
 }
 
 .dots {
@@ -563,38 +553,27 @@ code {
 }
 
 .code-area span {
-    display: block;
+    display: inline-block;
     height: 1.4rem;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
     width: 0;
+    vertical-align: middle;
 }
 
-/* Typing Sequential Lines (one by one) */
-.anim-line-1::before {
-    content: '#include "arabic_cpp.h"';
-    color: #ff7b72;
+.code-area div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.anim-line-2::before {
-    content: 'صحيح الرئيسية() {';
-    color: #d2a8ff;
-}
-
-.anim-line-3::before {
-    content: '    أخرج << "مرحباً بالعربي";';
-    color: #a5d6ff;
-}
-
-.anim-line-4::before {
-    content: '    أرجع 0;';
-    color: #79c0ff;
-}
-
-.anim-line-5::before {
-    content: '}';
-    color: #d2a8ff;
+.code-area samp {
+    color: #484f58;
+    font-size: 0.8rem;
+    min-width: 20px;
+    text-align: right;
+    user-select: none;
 }
 
 .anim-line-1 {
@@ -682,6 +661,32 @@ code {
     }
 }
 
+/* Typing Sequential Lines (one by one) */
+.anim-line-1::before {
+    content: '#include "arabic_cpp.h"';
+    color: #ff7b72;
+}
+
+.anim-line-2::before {
+    content: 'صحيح الرئيسية() {';
+    color: #d2a8ff;
+}
+
+.anim-line-3::before {
+    content: '    أخرج << "مرحباً بالعربي";';
+    color: #a5d6ff;
+}
+
+.anim-line-4::before {
+    content: '    أرجع 0;';
+    color: #79c0ff;
+}
+
+.anim-line-5::before {
+    content: '}';
+    color: #d2a8ff;
+}
+
 /* Blinking Cursor Per Line */
 .code-area span::after {
     content: '|';
@@ -692,6 +697,8 @@ code {
     opacity: 0;
     animation: blink 0.8s infinite;
 }
+
+
 
 .anim-line-1::after {
     animation: blink 0.8s infinite, cur1 18s infinite step-end;
@@ -892,13 +899,13 @@ code {
     }
 }
 
-.terminal-output {
+.terminal-output::after {
+    content: 'مرحباً بالعربي';
     display: block;
     color: var(--primary);
     font-weight: 700;
     margin-top: 5px;
     animation: showOutput 18s infinite;
-    opacity: 0;
 }
 
 @keyframes showOutput {
@@ -965,6 +972,8 @@ code {
 #step-3 {
     animation: highlight3 18s infinite;
 }
+
+num
 
 /* Footer */
 footer {
