@@ -317,6 +317,7 @@ code {
 }
 
 .editor-window {
+    direction: ltr;
     width: 100%;
     max-width: 650px;
     background: #0d1117;
@@ -328,6 +329,7 @@ code {
 }
 
 .editor-topbar {
+    direction: ltr;
     background: #161b22;
     padding: 12px 20px;
     display: flex;
@@ -345,7 +347,17 @@ code {
     cursor: pointer;
     font-weight: 700;
     transition: all 0.2s;
-    animation: btnClick 18s infinite;
+    animation: btnClick 18s infinite, pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 0 5px rgba(35, 134, 54, 0.4);
+    }
+
+    to {
+        box-shadow: 0 0 15px rgba(35, 134, 54, 0.82);
+    }
 }
 
 .dots {
