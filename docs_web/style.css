@@ -892,13 +892,13 @@ code {
     }
 }
 
-.terminal-output::after {
-    content: 'مرحباً بالعربي';
+.terminal-output {
     display: block;
     color: var(--primary);
     font-weight: 700;
     margin-top: 5px;
     animation: showOutput 18s infinite;
+    opacity: 0;
 }
 
 @keyframes showOutput {
